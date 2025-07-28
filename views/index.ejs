@@ -13,7 +13,30 @@
     <body class="bg-secondary-subtle">
         <div class="container mt-5">
             <h2 class="display-5">URL Shortener</h2>
-            <form action="/" method="POST"></form>
+            <form action="/" method="POST">
+                <div class="mb-3 mt-4">
+                    <label for="longUrl" class="form-label lead"
+                        >Enter long URL:</label
+                    >
+                    <input
+                        placeholder="https://example.com"
+                        type="text"
+                        name="longUrl"
+                        id="longUrl"
+                        required
+                        class="form-control border border-dark" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <% if (locals.shortId) { %>
+            <p class="leadm mt-3">
+                URL Generated:
+                <a href="http://localhost:8080/<%= shortId %>" target="_blank"
+                    >http://localhost:8080/<%= shortId %></a
+                >
+            </p>
+            <% } %>
         </div>
 
         <script
@@ -22,3 +45,4 @@
             crossorigin="anonymous"></script>
     </body>
 </html>
+
